@@ -66,8 +66,10 @@
                             </div>
                         <?php endforeach; ?>
 
-
                     </div><!--features_items-->
+
+                    <!-- Постраничная навигация -->
+                    <?= $pagination->get() ?>
 
                     <div class="category-tab"><!--category-tab-->
                         <div class="col-sm-12">

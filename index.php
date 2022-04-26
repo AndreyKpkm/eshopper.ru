@@ -6,13 +6,14 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// 2. Подключение файлов системы
+session_start();
+if (isset($_SESSION['lang'])) {
+    $_SESSION['lang'] = "en";
+}
+
+// 2. Подключение файлов системы. // 3. Установка соедниения с БД.
 define('ROOT', __DIR__);
-require_once(ROOT . '/components/Router.php');
-require_once(ROOT . '/components/Db.php');
-
-// 3. Установка соедниения с БД
-
+require_once(ROOT . '/components/Autoload.php');
 
 // 4. Вызов Router
 $router = new Router();
