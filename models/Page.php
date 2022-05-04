@@ -21,4 +21,16 @@ class Page
 
     }
 
+    public static function getPageContacts()
+    {
+
+        $db = Db::getConnection();
+
+        $result = $db->query("SELECT * FROM page WHERE `slug` = 'contacts'");
+        $row = $result->fetch(PDO::FETCH_ASSOC);
+
+        return $row;
+
+    }
+
 }

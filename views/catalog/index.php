@@ -40,7 +40,8 @@
                                             <p>
                                                 <a href="/product/<?= $product['id'] ?>"><?= $product['name'] ?></a>
                                             </p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
+                                            <a href="/cart/add/<?= $product['id'] ?>" class="btn btn-default add-to-cart" data-id="<?= $product['id'] ?>">
+                                                <i class="fa fa-shopping-cart"></i>В корзину</a>
                                             <?php if($product['is_new']) : ?>
                                                 <img src="/template/images/home/new.png" class="new" alt="new product">
                                             <?php endif; ?>
@@ -51,7 +52,9 @@
                                                 <p>
                                                     <a href="/product/<?= $product['id'] ?>"><?= $product['name'] ?></a>
                                                 </p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
+                                                <a href="/cart/add/<?= $product['id'] ?>" class="btn btn-default add-to-cart" data-id="<?= $product['id'] ?>">
+                                                    <i class="fa fa-shopping-cart"></i>В корзину
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

@@ -17,4 +17,41 @@ class SiteController
 
     }
 
+    public function actionContacts()
+    {
+
+        $userEmail = '';
+        $userText = '';
+        $result = false;
+
+        if (isset($_POST['submit'])) {
+
+            $userEmail = $_POST['userEmail'];
+            $userText = $_POST['userText'];
+
+            $errors = false;
+
+            // Валидация полей
+            if (!User::checkEmail($userEmail)) {
+                $errors[] = 'Неправильный email';
+            }
+
+            if ($errors === false) {
+                $adminEmail = 'andreychernov1@yandex.ru';
+                $message = "Текст: {$userText}. От {$userEmail}";
+                $subject = 'Тема письма';
+                $result = mail($adminEmail, $subject, $message);
+                $result = true;
+            }
+
+        }
+
+        $page = Page::getPageContacts();
+
+        require_once ROOT . '/views/site/contacts.php';
+
+        return true;
+
+    }
+
 }

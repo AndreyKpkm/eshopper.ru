@@ -64,7 +64,7 @@ class Product
     }
 
     // Return product item by id
-    public static function getProductById(int $id):array
+    public static function getProductById(int $id)
     {
 
         $id = intval($id);
@@ -77,6 +77,34 @@ class Product
 
             return $result->fetch();
         }
+
+        return false;
+
+    }
+
+    public static function getProductsByIds($idsArray)
+    {
+
+        $products = [];
+
+        $db = Db::getConnection();
+
+        $idsString = implode(', ', $idsArray);
+
+        $sql = "SELECT * FROM product WHERE status = '1' AND id IN ($idsString)";
+
+        $result = $db->query($sql);
+
+        $i = 0;
+        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            $products[$i]['id'] = $row['id'];
+            $products[$i]['code'] = $row['code'];
+            $products[$i]['name'] = $row['name'];
+            $products[$i]['price'] = $row['price'];
+            $i++;
+        }
+
+        return $products;
 
     }
 
