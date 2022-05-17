@@ -84,4 +84,31 @@ class Cart
 
     }
 
+    /**
+     * Удалит товар из корзины
+     * @param int $id
+     * @return bool
+     */
+    public static function removeProduct(int $id)
+    {
+
+        $id = intval($id);
+
+        if ( isset($_SESSION['products'][$id]) ) {
+            unset($_SESSION['products'][$id]);
+        } else {
+            return false;
+        }
+
+    }
+
+    public static function clear()
+    {
+
+        if (isset($_SESSION['products'])) {
+            unset($_SESSION['products']);
+        }
+
+    }
+
 }

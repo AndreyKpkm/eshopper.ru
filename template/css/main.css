@@ -1570,6 +1570,15 @@ h2.title {
     font-weight: normal;
 }
 
+.table .col-delete {
+    max-width: 20px;
+}
+
+.table .col-delete .btn {
+    background-color: transparent;
+    padding: 0 5px;
+}
+
 #cart_items .cart_info .table.table-condensed thead tr {
     height: 51px;
 }

@@ -27,6 +27,7 @@
                             <p>Вы выбрали такие товары:</p>
                             <table class="table-bordered table-striped table">
                                 <tr>
+                                    <th class="col-delete"></th>
                                     <th>Код товара</th>
                                     <th>Название</th>
                                     <th>Кол-во, шт</th>
@@ -34,6 +35,9 @@
                                 </tr>
                                 <?php foreach ($products as $product) : ?>
                                     <tr>
+                                        <td class="col-delete">
+                                            <button class="btn" data-id="<?= $product['id'] ?>" title="Удалить">x</button>
+                                        </td>
                                         <td><?= $product['code'] ?></td>
                                         <td>
                                             <a href="/product/<?= $product['id'] ?>">
@@ -45,10 +49,11 @@
                                     </tr>
                                 <?php endforeach; ?>
                                 <tr>
-                                    <td colspan="3">Общая стоимость</td>
+                                    <td colspan="4">Общая стоимость</td>
                                     <td><?= $totalPrice ?></td>
                                 </tr>
                             </table>
+                            <a class="btn btn-default" href="/cart/checkout/">Оформить заказ</a>
                         <?php else : ?>
                             <p>Корзина пуста</p>
                         <?php endif; ?>

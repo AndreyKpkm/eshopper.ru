@@ -67,6 +67,17 @@ class User
 
     }
 
+    // Проверяет телефон: не меньше, чем 7 символа
+    public static function checkPhone($phone)
+    {
+
+        if (strlen($phone) > 7) {
+            return true;
+        }
+        return false;
+
+    }
+
     /**
      * Проверяем, существует ли пользователь с заданными $email и $password
      * @param string $email

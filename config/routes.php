@@ -11,6 +11,8 @@ return array(
     'cart/add/([0-9]+)' => 'cart/add/$1', // actionAdd в CartController
 
     'cart/addAjax/([0-9]+)' => 'cart/addAjax/$1',
+    'cart/removeAjax/([0-9]+)' => 'cart/removeAjax/$1',
+    'cart/checkout' => 'cart/checkout',
     'cart' => 'cart/index',
 
     'user/register' => 'user/register',

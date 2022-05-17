@@ -30,12 +30,28 @@ $(document).ready(function () {
         });
     });
 
-    $(".add-to-cart").click(function() {
+    $(".add-to-cart").click(function () {
         var id = $(this).attr("data-id");
-        $.post("/cart/addAjax/"+id, {}, function(data) {
+        $.post("/cart/addAjax/" + id, {}, function (data) {
             $("#cart-count").html(data);
         });
         return false;
     });
+
+
+    if (document.querySelector('.col-delete')) {
+        $('.col-delete .btn').click(function () {
+            var id = $(this).attr('data-id');
+            var product = $(this);
+            $.post(
+                "/cart/removeAjax/" + id,
+                {},
+                function (data) {
+                    product.parent().parent().remove();
+                }
+            );
+            return false;
+        });
+    }
 
 });
