@@ -43,6 +43,7 @@ $(document).ready(function () {
         $('.col-delete .btn').click(function () {
             var id = $(this).attr('data-id');
             var product = $(this);
+            var totalPrice = $('#cart-total-price');
             $.post(
                 "/cart/removeAjax/" + id,
                 {},
@@ -50,6 +51,15 @@ $(document).ready(function () {
                     product.parent().parent().remove();
                 }
             );
+            $.ajax({
+                type: 'POST',
+                url: '/cart/updateTotalPriceCartAjax',
+                dataType: 'json',
+                cache: false,
+                success: function(data) {
+                    totalPrice.html(data);
+                },
+            });
             return false;
         });
     }

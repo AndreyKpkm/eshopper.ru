@@ -567,8 +567,21 @@ ul.sub-menu {
     background: #FE980F;
 }
 
+.single-products .productinfo > img {
+    height: auto;
+}
+
+.single-products .slider-price {
+    color: #FE980F;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 22px;
+    margin-top: 10px;
+}
+
 .item {
-    padding-left: 100px;
+    padding: 0 15px;
 }
 
 .pricing {
@@ -1536,6 +1549,7 @@ h2.title {
 }
 
 .breadcrumbs .breadcrumb li a {
+    position: relative;
     background: #FE980F;
     color: #FFFFFF;
     padding: 3px 7px;
@@ -1545,12 +1559,12 @@ h2.title {
     content: "";
     height: auto;
     width: auto;
-    border-width: 8px;
+    border-width: 11px;
     border-style: solid;
     border-color: transparent transparent transparent #FE980F;
     position: absolute;
-    top: 11px;
-    left: 48px;
+    top: 0;
+    right: -22px;
 }
 
 .breadcrumbs .breadcrumb>li+li:before {
@@ -1570,13 +1584,24 @@ h2.title {
     font-weight: normal;
 }
 
+.table thead th,
+.table-order-products {
+    white-space: nowrap;
+}
+
 .table .col-delete {
     max-width: 20px;
 }
 
 .table .col-delete .btn {
+    color: #428bca;
     background-color: transparent;
     padding: 0 5px;
+}
+
+.table .col-delete .btn:focus,
+.table .col-delete .btn:hover {
+    color: #2a6496;
 }
 
 #cart_items .cart_info .table.table-condensed thead tr {

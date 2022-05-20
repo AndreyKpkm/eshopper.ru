@@ -36,7 +36,7 @@
                                 <?php foreach ($products as $product) : ?>
                                     <tr>
                                         <td class="col-delete">
-                                            <button class="btn" data-id="<?= $product['id'] ?>" title="Удалить">x</button>
+                                            <button class="btn" data-id="<?= $product['id'] ?>" title="Удалить"><i class="fa fa-times"></i></button>
                                         </td>
                                         <td><?= $product['code'] ?></td>
                                         <td>
@@ -50,7 +50,7 @@
                                 <?php endforeach; ?>
                                 <tr>
                                     <td colspan="4">Общая стоимость</td>
-                                    <td><?= $totalPrice ?></td>
+                                    <td id="cart-total-price"><?= $totalPrice ?></td>
                                 </tr>
                             </table>
                             <a class="btn btn-default" href="/cart/checkout/">Оформить заказ</a>

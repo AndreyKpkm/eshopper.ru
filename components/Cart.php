@@ -85,20 +85,29 @@ class Cart
     }
 
     /**
-     * Удалит товар из корзины
+     * Удалит товар с указанным id из корзины
      * @param int $id
      * @return bool
      */
-    public static function removeProduct(int $id)
+    public static function removeProduct(int $id): bool
     {
 
-        $id = intval($id);
+        // Получаем массив с идентификаторами и количеством товаров в корзине
+        $productsInCart = self::getProducts();
 
-        if ( isset($_SESSION['products'][$id]) ) {
-            unset($_SESSION['products'][$id]);
-        } else {
-            return false;
-        }
+        // Удаляем из массива элемент с указанным id
+        unset($productsInCart[$id]);
+
+        // Записываем массив товаров с удалённым элементом в сессию
+        $_SESSION['products'] = $productsInCart;
+
+        return false;
+
+//        if ( isset($_SESSION['products'][$id]) ) {
+//            unset($_SESSION['products'][$id]);
+//        } else {
+//            return false;
+//        }
 
     }
 

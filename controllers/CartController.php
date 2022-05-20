@@ -54,11 +54,29 @@ class CartController
     /**
      * Удаляет товары из корзины
      */
-    public function actionRemoveAjax($id) {
+    public function actionRemoveAjax($id)
+    {
 
         Cart::removeProduct($id);
         return true;
 
+    }
+
+    /**
+     * Обновляет общую сумму заказа корзины
+     */
+    public function actionUpdateTotalPriceCartAjax()
+    {
+
+        // Итоги: обшая стоимость, количество товаров
+        $productsInCart = Cart::getProducts();
+        $productsIds = array_keys($productsInCart);
+        $products = Product::getProductsByIds($productsIds);
+        $totalPrice = Cart::getTotalPrice($products);
+
+//        return $totalPrice;
+        echo $totalPrice;
+        return true;
     }
 
     public function actionCheckout()

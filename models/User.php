@@ -104,22 +104,28 @@ class User
 
     /**
      * Запоминаем пользователя
-     * @param string $userId
+     * @return integer $userId - id пользователя
      */
-    public static function auth(string $userId):void
+    public static function auth($userId)
     {
         $_SESSION['user'] = $userId;
     }
 
+    /**
+     * Возвращает идентификатор пользователя, если он авторизован. Иначе перенаправляет на страницу входа.
+     * @return string - Идентификатор пользователя.
+     */
     public static function checkLogged()
     {
+
         // Если сессия есть, вернём идентификатор пользователя
         if (isset($_SESSION['user'])) {
             return $_SESSION['user'];
         }
 
-        header("Location: /user/login/");
+        header("Location: /user/login");
         return false;
+
     }
 
     /**
